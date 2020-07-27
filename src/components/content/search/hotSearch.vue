@@ -1,32 +1,34 @@
 <template>
-  <div class="hot">
+  <div class="hot-search">
     <scroll class="hot-scroll" :scrollbar="{fade:false}">
-      <div class="record">
+      <div class="record"> 
         <h3>
           搜索历史
           <div class="icon" @click="del()">
-            <img src="~assets/img/content/delete.svg" alt />
+            <img src="@/assets/img/content/delete.svg" alt="">
           </div>
         </h3>
-        <div class="record-content">
-          <div class="search-item" v-for="(item,index) in searchlist" :key="index" @click="recordClick(index)">
+        <div class="record-content">  
+          <div class="search-item" v-for="(item, index) in searchlist" :key="index"
+          @click="recordClick(index)">
             {{item}}
-            </div>
+          </div>
         </div>
       </div>
+
       <div class="hotlist">
         <h3>热搜榜</h3>
         <table>
-          <tr v-for="(item,index) in hotlist" :key="index" @click="searchDetail(index)">
+          <tr v-for="(item, index) in hotlist" :key="index" @click="searchDetail(index)">
             <td :class="{red:index<=2}">{{setSerial(index)}}</td>
             <td>
               <div class="top">
                 <div class="top-name">{{item.searchWord}}</div>
                 <div class="top-score">{{item.score}}</div>
                 <div class="top-url">
-                  <img :src="item.iconUrl" alt />
+                  <img :src="item.iconUrl" alt="">
                 </div>
-              </div>
+              </div>  
               <div class="bottom">{{item.content}}</div>
             </td>
           </tr>
@@ -35,46 +37,50 @@
     </scroll>
   </div>
 </template>
+
 <script>
-import Scroll from "components/common/scroll/Scroll";
-import { _hotSearchDetail } from "network/search";
-import { tableMixin } from "views/musicListDetail/childComps/tableMixin";
+import Scroll from "../../common/Scroll";
+import { _hotSearchDetail } from "@/network/search";
+// import { tableMixin } from "views/musicListDetail/childComps/tableMixin";
 export default {
   name: "HotSearch",
   props: {
     searchlist: {
       type: Array,
       default() {
-        return [];
+        return []
       }
     }
   },
   data() {
     return {
       hotlist: []
-    };
+    }
   },
-  components: { Scroll },
-  mixins: [tableMixin],
+  components: {
+    Scroll
+  },
+  // mixins: [tableMixin],
   created() {
     _hotSearchDetail().then(res => {
-      this.hotlist = res.data.data;
-    });
+      this.hotlist = res.data.data
+    })
   },
   methods: {
-    del(){
-        this.$emit('del');
+    del() {
+      this.$emit('del')
     },
-    searchDetail(index){
-       this.$router.push('/search/'+this.hotlist[index].searchWord);
-       this.$parent.isShow=false;
+    searchDetail(index) {
+      this.$router.push('/search/'+this.hotlist[index].searchWord)
+      this.$parent.isShow=false
     },
-    recordClick(index){
-      this.$emit('recordClick',index);
-    },
+    recordClick(index) {
+      this.$emit('recordClick', index)
+    }
   }
-};
+}
 </script>
+
 <style scoped>
 .hot {
   width: 400px;

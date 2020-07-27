@@ -1,115 +1,96 @@
 <template>
   <div class="search" @mouseleave="leave()">
-    <div class="search-item">
+    <div class="searcj-item">
         <input type="text" class="mess" v-model="keywords" @focus="focus()" @keydown.enter="keyEnter()"/>
-      <div class="search-icon" @click="keyEnter()">
-        <img src="~assets/img/content/search.svg" alt />
-      </div>
+        <div class="search-icon" @click="keyEnter()">          
+          <img src="@/assets/img/content/search.svg" alt="">
+        </div>
     </div>
-    <!-- <hot-search :searchlist="searchlist" v-show="isShow" @del="del" @recordClick="recordClick" /> -->
+
+    <!-- <hot-search :searchlist="searchlist" v-show="isShow" @del="del" @recordClick="recordClick"/> -->
     <div class="suggest" v-show="isSuggest">
-      <div class="top">
-        搜索
-        <span>"{{keywords}}"</span>相关的结果>
-      </div>
-      <!-- <dl>
-        <dt>
-          <div class="icon">
-            <img src="~assets/img/leftmenu/music-line.svg" alt />
-          </div>
-          <div class="tit">单曲</div>
-        </dt>
-        <dd v-for="(item,index) in sugSongs" :key="index+'song'" @click="enterSearch(item.name)">
-          {{item.name}}——{{item.artists[0].name}}</dd>
-        <dt>
-          <div class="icon">
-            <img src="~assets/img/content/profile-o.svg" alt />
-          </div>
-          <div class="tit">歌手</div>
-        </dt>
-        <dd v-for="(item,index) in sugArtist" :key="index" @click="enterArtist(item)">{{item.name}}</dd>
-      </dl> -->
+
     </div>
   </div>
 </template>
+
 <script>
-// import HotSearch from "./hotSearch";
-import { _Suggest } from "network/search";
-import { debounce } from "assets/common/tool";
+import HotSearch from "./hotSearch";
+import { _Suggest } from "@/network/search";
 export default {
-  name: "MusicSearch",
-  data() {
-    return {
-      searchlist: ["海底", "世间美好与你环环相扣", "灰狼"],
-      isShow: false,
-      isSuggest: false,
-      keywords: "",
-      sugSongs: [],
-      sugArtist: []
-    };
-  },
-  components: {
-    // HotSearch
-  },
-  watch: {
-    keywords() {
-      if (this.keywords != "") {
-        this.isShow = false;
-        this.isSuggest = true;
-        this.suggest();
+    name: "MusicSearch",
+    data() {
+      return {
+        searchlist: ["In Your Eyes", "Failling", "天外来物"],
+        isShow: false,
+        isSuggest: false,
+        keywords: "",
+
+      }
+    },
+    components: {
+      HotSearch
+    },
+    watch: {
+      keywords() {
+        if (this.keywords != "") {
+          this.isShow = false
+          this.isSuggest = true
+          this.suggest()
+        }
+      }
+    },
+    methods: {
+      focus() {
+        this.isShow = true
+      },
+      leave() {
+        this.isShow = false
+        this.isSuggest = false        
+      },
+      del() {
+        this.searchlist = []
+      },
+      keyEnter() {
+        if(this.keywords == ''||this.keywords==null) return
+        this.$router.push("/search/"+this.keywords)
+        this.searchlist.unshift(this.keywords)
+        this.keywords = ''
+        this.isSuggest = false
+        this.isShow = false
+      },
+      recordClick(index) {
+        this.$router.push("/search/" + this.searchlist[index])
+        this.isShow = false
+      },
+      enterSearch(name) {
+        this.$router.push("/search/" + name)
+        this.isSuggest = false
+      },
+      // enterArtist(artist){
+      //   this.$router.push({
+      //   path: "/artist",
+      //   query: {
+      //     artist: artist
+      //   }
+      // });
+      // this.$store.commit('addArtist',artist);
+      // },
+      suggest() {
+        _Suggest(this.keywords).then(res => {
+          this.sugSongs = res.data.result.songs 
+          // this.sugArtist = res.data.result.artists;
+        })
       }
     }
-  },
-  methods: {
-    focus() {
-      this.isShow = true;
-    },
-    leave() {
-      this.isShow = false;
-      this.isSuggest = false;
-    },
-    del() {
-      this.searchlist = [];
-    },
-    keyEnter(){
-        if(this.keywords==''||this.keywords==null) return ;
-        this.$router.push("/search/" + this.keywords); 
-        this.searchlist.unshift(this.keywords);
-        this.keywords='';
-        this.isSuggest=false;
-        this.isShow=false;
-    },
-    recordClick(index) {
-      this.$router.push("/search/" + this.searchlist[index]);
-      this.isShow = false;
-    },
-    enterSearch(name){
-        this.$router.push("/search/" + name);
-      this.isSuggest = false; 
-    },
-    enterArtist(artist){
-        this.$router.push({
-        path: "/artist",
-        query: {
-          artist: artist
-        }
-      });
-      this.$store.commit('addArtist',artist);
-    },
-    suggest() {
-      _Suggest(this.keywords).then(res => {
-        this.sugSongs = res.data.result.songs;
-        this.sugArtist = res.data.result.artists;
-      });
-    }
-  }
-};
+}
 </script>
+
 <style scoped>
 .search {
-  height: 7%;
-  width: 100px;
-  margin-left:25px;
+  height: 100%;
+  width: 230px;
+  margin-left: 100px;
   display: inline-block;
   position: relative;
 }
@@ -140,11 +121,11 @@ export default {
 .search-icon {
     cursor: pointer;
   position: absolute;
-  left: 2px;
-  top: -2px;
+  right: 2px;
+  top: 10px;
 }
 .suggest {
-  width: 100px;
+  width: 400px;
   background: #2d2f33;
   position: absolute;
   top: 54px;

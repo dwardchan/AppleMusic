@@ -1,31 +1,25 @@
 <template>
   <div id="app">
-    <left-menu/>
-    <!-- <play-music/>
-    <Main/> -->
+    <tab-bar></tab-bar>
+    
   </div>
 </template>
 
 <script>
-import LeftMenu from './components/content/LeftMenu'
-// import PlayMusic from "./components/content/playmusic/PlayMusic"
-// import Main from './components/content/Main'
-
+import TabBar from '@/components/content/tabbar/TabBar'
 export default {
-  name:'App',
-  components:{
-    LeftMenu,
-    // Main,
-    // PlayMusic
+  name: "App",
+  components: {
+    TabBar,
   }
 }
 </script>
 
-<style scoped>
+<style>
 @import url('./assets/css/base.css');
 @import url('./assets/css/play.css');
 #app {
-   width: 100%;
+  width: 100%;
   height: 100vh;
   overflow: hidden;
   user-select: none;
