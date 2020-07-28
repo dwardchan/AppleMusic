@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-// const DiscoverMusic=()=>import('views/discover/DiscoverMusic')
-// const Individuation=()=>import('views/discover/childRouter/Individuation')
+const DiscoverMusic=()=>import('@/views/discover/DiscoverMusic')
+const Individuation=()=>import('@/views/discover/childRouter/Individuation')
 // const MusicListCategory=()=>import('views/discover/childRouter/MusicListCategory')
 // const MusicRankList=()=>import('views/discover/childRouter/MusicRankList')
 // const ArtistCategory=()=>import('views/discover/childRouter/ArtistCategory')
@@ -21,40 +21,40 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
   const routes = [
-  // {
-  //   path: '',
-  //   redirect:'/discover'
-  // },
-  // {
-  //   path: '/discover',
-  //   component: DiscoverMusic,
-  //   children: [
-  //     {
-  //       path: '/',
-  //       redirect: '/discover/individ'
-  //     },
-  //     {
-  //       path:'/discover/individ',
-  //       component:Individuation
-  //     },
-  //     {
-  //       path:'/discover/category',
-  //       component:MusicListCategory
-  //     },
-  //     {
-  //       path:'/discover/ranklist',
-  //       component:MusicRankList
-  //     },
-  //     {
-  //       path:'/discover/artist',
-  //       component:ArtistCategory
-  //     },
-  //     {
-  //       path:'/discover/newsongs',
-  //       component:NewSongsR
-  //     }
-  //   ]
-  // },
+  {
+    path: '',
+    redirect:'/discover'
+  },
+  {
+    path: '/discover',
+    component: DiscoverMusic,
+    children: [
+      {
+        path: '/',
+        redirect: '/discover/individ'
+      },
+      {
+        path:'/discover/individ',
+        component: Individuation
+      },
+      // {
+      //   path:'/discover/category',
+      //   component:MusicListCategory
+      // },
+      // {
+      //   path:'/discover/ranklist',
+      //   component:MusicRankList
+      // },
+      // {
+      //   path:'/discover/artist',
+      //   component:ArtistCategory
+      // },
+      // {
+      //   path:'/discover/newsongs',
+      //   component:NewSongsR
+      // }
+    ]
+  },
   // {
   //   path:'/musiclistdetail/:id/:time',
   //   name:'detail',

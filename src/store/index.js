@@ -14,8 +14,8 @@ const state = {
   artist: null,//歌手信息
 }
 export default new Vuex.Store({
-  state: {
-  },
+  //state相当于一个全局变量库
+  state,
   mutations: {
     addPlayList(state, list) {
       state.playlist = list

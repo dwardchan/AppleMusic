@@ -1,5 +1,5 @@
 module.exports = {
-    publicPath: process.env.NODE_ENV === 'production' ? '/fds_music/' : '/',
+    publicPath: process.env.NODE_ENV === 'production' ? '/apple-music/' : '/',
     configureWebpack: {
         resolve: {
             alias: {

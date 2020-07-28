@@ -1,16 +1,21 @@
 <template>
   <div id="app">
-    <tab-bar></tab-bar>
-    
+    <tab-bar/>
+    <left-menu/>
+    <Main/>
   </div>
 </template>
 
 <script>
 import TabBar from '@/components/content/tabbar/TabBar'
+import LeftMenu from '@/components/content/leftmenu/LeftMenu'
+import Main from '@/components/content/main/Main'
 export default {
   name: "App",
   components: {
     TabBar,
+    LeftMenu,
+    Main,
   }
 }
 </script>
