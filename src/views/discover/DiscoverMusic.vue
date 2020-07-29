@@ -1,6 +1,5 @@
 <template>
   <div class="discover">
-    <nav-bar :list="list" ref="nav"/>
     <div class="content">
       <keep-alive>
         <router-view></router-view>
@@ -10,34 +9,11 @@
 </template>
 
 <script>
-import NavBar from "./childComps/NavBar";
 export default {
   name: "DiscoverMusic",
-  data() {
-    return {
-      list: [
-        { link: "/discover/individ", name: "个性推荐" },
-        { link: "/discover/category", name: "歌单" },
-        { link: "/discover/ranklist", name: "排行榜" },
-        { link: "/discover/artist", name: "歌手" },
-        { link: "/discover/newsongs", name: "最新音乐" },
-        { link: "", name: "主播电台" },
-      ]
-    }
-  },
   components: {
-    NavBar
   },
-  created() {
-    for(let i in this.list) {
-      if(this.list[i].link == this.$route.path) {
-        setTimeout(() => {
-          this.$refs.nav.barClick(i)
-        }, 100)
-        break;
-      }
-    }
-  }
+
 }
 </script>
 

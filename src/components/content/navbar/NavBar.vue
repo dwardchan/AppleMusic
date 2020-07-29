@@ -6,7 +6,7 @@
           class="item"
           @click="barClick(index)"
           :class="{action:currentIndex==index}"
-        >{{item.name}}</div>
+        >{{item.name}}</div>  
       </router-link>
     </div>
   </div>
@@ -15,17 +15,28 @@
 <script>
 export default {
   name: "NavBar",
-  props: {
-    list: {
-      type: Array,
-      default() {
-        return []
-      }
-    }
-  },
+  
   data() {
     return {
-      currentIndex: 0
+      currentIndex: 0,
+      list: [
+        { link: "/discover/individ", name: "个性推荐" },
+        { link: "/discover/category", name: "歌单" },
+        { link: "/discover/ranklist", name: "排行榜" },
+        { link: "/discover/artist", name: "歌手" },
+        { link: "/discover/newsongs", name: "最新音乐" },
+        { link: "", name: "主播电台" },
+      ]
+    }
+  },
+  created() {
+    for(let i in this.list) {
+      if(this.list[i].link == this.$route.path) {
+        setTimeout(() => {
+          this.$refs.nav.barClick(i)
+        }, 100)
+        break;
+      }
     }
   },
   methods: {
@@ -38,11 +49,12 @@ export default {
 
 <style scoped>
 .navbar {
-  height: 49px;
+  background-color: #c20c0c;
+  height: 34px;
   width: 100%;
 }
 .content {
-  width: 50%;
+  width: 35%;
   height: 100%;
   margin: 0px auto;
   display: flex;
@@ -51,9 +63,9 @@ export default {
   text-align: center;
   flex: 1;
   height: 100%;
-  line-height: 49px;
+  line-height: 34px;
   color: #fff;
-  opacity: 0.6;
+  
 }
 .action {
   opacity: 1;

@@ -1,6 +1,6 @@
 <template>
   <div class="search" @mouseleave="leave()">
-    <div class="searcj-item">
+    <div class="search-item">
         <input type="text" class="mess" v-model="keywords" @focus="focus()" @keydown.enter="keyEnter()"/>
         <div class="search-icon" @click="keyEnter()">          
           <img src="@/assets/img/content/search.svg" alt="">
@@ -89,21 +89,20 @@ export default {
 <style scoped>
 .search {
   height: 100%;
-  width: 230px;
-  margin-left: 100px;
+  width: 200px;
   display: inline-block;
   position: relative;
 }
 .search-item {
   line-height: 54px;
   height: 50%;
-  width: 100%;
+  width: 80%;
   position: absolute;
   top: 0;
   bottom: 0;
   margin: auto;
   background: #fff;
-  border-radius: 10px;
+  border-radius: 26px;
 }
 
 .mess {
@@ -112,17 +111,17 @@ export default {
   line-height: 16px;
   background: transparent;
   position: absolute;
-  width: 80%;
+  width: 70%;
   height: 100%;
   padding: 0px 10px;
   border: #f6f6f6;
   border-radius: 10px;
 }
 .search-icon {
-    cursor: pointer;
+  cursor: pointer;
   position: absolute;
   right: 2px;
-  top: 10px;
+  top: -2px;
 }
 .suggest {
   width: 400px;

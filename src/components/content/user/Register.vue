@@ -1,5 +1,5 @@
 <template>
- <div class="login">
+ <div class="register">
     <div class="back">
         <div class="x" @click="hiddenLogin()"><img src="@/assets/img/user/x.svg" alt=""></div>
       <div class="son">
@@ -30,7 +30,7 @@
 <script>
 
 export default {
-   name: "Login",
+   name: "Register",
   data(){
       return{
           phone:'',
@@ -60,7 +60,7 @@ export default {
 </script>
 
 <style scoped>
-.login {
+.register {
   width: 400px;
   height: 560px;
   background: #fafafa;

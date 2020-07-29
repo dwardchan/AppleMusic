@@ -39,6 +39,9 @@ export default {
   width: 100%;
   padding: 20px 0;
 }
+.private p {
+  font-size: 20px;
+}
 .content {
   margin-top: 10px;
   width: 100%;

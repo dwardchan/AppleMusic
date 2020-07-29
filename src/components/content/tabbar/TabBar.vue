@@ -8,31 +8,14 @@
       </div>
     </div>
 
-    <music-search/>
+    <top-menu class="topmenu"/>
     <div class="content">
+      <music-search class="serach"/>
       <div class="login" @click="showLogin()">
         <div class="profile">
           <img :src="getImage" alt="">
         </div>
         <div>{{getUserName}}</div>
-      </div>
-
-      <div class="right">
-        <div>
-          <a href="#" title="最小化">
-            <img src="@/assets/img/content/min.svg" alt="最小化" />
-          </a>
-        </div>
-        <div>
-          <a href="#" title="还原">
-            <img src="@/assets/img/content/reset.svg" alt="还原" />
-          </a>
-        </div>
-        <div>
-          <a href="#" title="退出">
-            <img src="@/assets/img/content/x.svg" alt="退出" />
-          </a>
-        </div>
       </div>
     </div>
   </div>
@@ -40,10 +23,12 @@
 
 <script>
 import MusicSearch from "../search/MusicSearch";
+import TopMenu from "../topmenu/TopMenu"
 export default {
   name: "TabBar",
   components: {
-    MusicSearch
+    MusicSearch,
+    TopMenu
   },
   data() {
     return {
@@ -79,14 +64,17 @@ export default {
 
 <style scoped>
 .tabbar {
-  height: 54px;
+  height: 60px;
   width: 100%;
   background-color: #202023;
 }
 .logo {
+  color: #fff;
+  font-size: 16px;
   cursor: pointer;
   height: 100%;
-  width: 15%;
+  margin-left: 425px;
+  width: 10%;
   line-height: 100%;
   display: flex;
   float: left;
@@ -106,9 +94,17 @@ export default {
 .back img {
   height: 100% !important;
 }
+
 .content {
-  float: right;
+  color: #fff;
+  margin-left: -400px;
+  float: left;
   height: 100%;
+}
+.search {
+  float: left;
+  display: flex;
+  align-items: center;
 }
 .login {
   cursor: pointer;
@@ -133,20 +129,5 @@ export default {
   margin: 0px 10px 0px 10px;
   height: 60%;
 }
-.right {
-  height: 100%;
-  display: flex;
-  align-items: center;
-}
-.right div {
-  flex: 1;
-  margin-right: 15px;
-  opacity: 0.6;
-}
-.right div:hover {
-  opacity: 1;
-}
-.right div img {
-  width: 22px;
-}
+
 </style>

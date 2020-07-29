@@ -1,21 +1,21 @@
 <template>
   <div id="app">
     <tab-bar/>
-    <left-menu/>
+    <nav-bar/>
     <Main/>
   </div>
 </template>
 
 <script>
 import TabBar from '@/components/content/tabbar/TabBar'
-import LeftMenu from '@/components/content/leftmenu/LeftMenu'
+import NavBar from '@/components/content/navbar/NavBar'
 import Main from '@/components/content/main/Main'
 export default {
   name: "App",
   components: {
     TabBar,
-    LeftMenu,
     Main,
+    NavBar
   }
 }
 </script>
@@ -28,7 +28,7 @@ export default {
   height: 100vh;
   overflow: hidden;
   user-select: none;
-  background: #16181c;
-  color: #fff;
+  background: #f5f5f5;
+  color: #000000;
 }
 </style>

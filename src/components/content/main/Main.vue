@@ -21,8 +21,8 @@ export default {
 
 <style scoped>
 .main{
-  width: calc(100% - 15%);
-  height: calc(100% - 54px - 59px);
+  width: calc(100% - 30%);
+  height: calc(100% - 60px - 39px);
   margin-left: 15%;
   position:relative;
 }

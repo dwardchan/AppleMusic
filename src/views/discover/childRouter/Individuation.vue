@@ -98,6 +98,9 @@ export default {
   width: 100%;
   height: 100%;
 }
+.individuation p {
+  font-size: 20px;
+}
 .indici-scroll {
   width: 100%;
   height: 100%;
