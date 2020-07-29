@@ -1,4 +1,4 @@
-# vue-apple-music
+# 高仿网页版网易云音乐 用vue、bscroll、emit和bus
 
 ## Project setup
 ```
