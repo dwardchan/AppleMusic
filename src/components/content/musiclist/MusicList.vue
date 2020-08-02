@@ -13,14 +13,14 @@
     :key="index"
     @click="enterDetail(index)"
     >
-    <img :src="getImgUrl(item)" alt="" @load="imgLoad">
-    <div class="title">{{item.name}}</div>
-    <div class="count">
+      <img :src="getImgUrl(item)" alt="" @load="imgLoad">
+      <div class="title">{{item.name}}</div>
+      <div class="count">
       <div>
         <img src="@/assets/img/content/erji.svg" alt="">
         {{item.palyCount}}
       </div>
-    </div>
+      </div>
     </div>
   </div>
 </template>

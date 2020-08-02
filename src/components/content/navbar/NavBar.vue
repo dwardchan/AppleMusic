@@ -33,7 +33,7 @@ export default {
     for(let i in this.list) {
       if(this.list[i].link == this.$route.path) {
         setTimeout(() => {
-          this.$refs.nav.barClick(i)
+          this.barClick(i)
         }, 100)
         break;
       }
