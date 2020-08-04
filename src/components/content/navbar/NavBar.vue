@@ -5,7 +5,7 @@
          <div
           class="item"
           @click="barClick(index)"
-          :class="{action:currentIndex==index}"
+          
         >{{item.name}}</div>  
       </router-link>
     </div>
@@ -25,7 +25,7 @@ export default {
         { link: "/discover/ranklist", name: "排行榜" },
         { link: "/discover/artist", name: "歌手" },
         { link: "/discover/newsongs", name: "最新音乐" },
-        { link: "", name: "主播电台" },
+        { link: "/discover/djprogram", name: "主播电台" },
       ]
     }
   },
@@ -67,8 +67,5 @@ export default {
   color: #fff;
   
 }
-.action {
-  opacity: 1;
-  border-bottom: 2px solid #5c5e61;
-}
+
 </style>

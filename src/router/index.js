@@ -5,11 +5,12 @@ const DiscoverMusic=()=>import('@/views/discover/DiscoverMusic')
 const Individuation=()=>import('@/views/discover/childRouter/Individuation')
 const MusicListCategory=()=>import('@/views/discover/childRouter/MusicListCategory')
 const MusicRankList=()=>import('@/views/discover/childRouter/MusicRankList')
-// const ArtistCategory=()=>import('views/discover/childRouter/ArtistCategory')
-// const NewSongsR=()=>import('views/discover/childRouter/NewSongsR')
+const ArtistCategory=()=>import('@/views/discover/childRouter/ArtistCategory')
+const NewSongsR=()=>import('@/views/discover/childRouter/NewSongsR')
+const DjProgram=()=>import('@/views/discover/childRouter/DjProgram')
 
 const MusicListDetail=()=>import('@/views/musicListDetail/MusicListDetail')
-// const DayMusicListDetail=()=>import('views/musicListDetail/DayMusicListDetail')
+const DayMusicListDetail=()=>import('@/views/musicListDetail/DayMusicListDetail')
 
 // const ArtistDetail=()=>import('views/artistdetail/ArtistDetail')
 // const ArtistAlbum=()=>import('views/artistdetail/childRouter/ArtistAlbum')
@@ -45,14 +46,18 @@ Vue.use(VueRouter)
         path:'/discover/ranklist',
         component:MusicRankList
       },
-      // {
-      //   path:'/discover/artist',
-      //   component:ArtistCategory
-      // },
-      // {
-      //   path:'/discover/newsongs',
-      //   component:NewSongsR
-      // }
+      {
+        path:'/discover/artist',
+        component:ArtistCategory
+      },
+      {
+        path:'/discover/newsongs',
+        component:NewSongsR
+      },
+      {
+        path:'/discover/djprogram',
+        component:DjProgram
+      }  
     ]
   },
   {
@@ -60,10 +65,10 @@ Vue.use(VueRouter)
     name:'detail',
     component:MusicListDetail,
   },
-  // {
-  //   path:'/daymusic',
-  //   component:DayMusicListDetail
-  // },
+  {
+    path:'/daymusic',
+    component:DayMusicListDetail
+  },
   // {
   //   path:'/artist',
   //   component:ArtistDetail,

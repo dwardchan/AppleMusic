@@ -3,6 +3,7 @@
     <tab-bar/>
     <nav-bar/>
     <Main/>
+    <play-music/>
   </div>
 </template>
 
@@ -10,12 +11,14 @@
 import TabBar from '@/components/content/tabbar/TabBar'
 import NavBar from '@/components/content/navbar/NavBar'
 import Main from '@/components/content/main/Main'
+import PlayMusic from "@/components/content/playmusic/PlayMusic"
 export default {
   name: "App",
   components: {
     TabBar,
     Main,
-    NavBar
+    NavBar,
+    PlayMusic
   }
 }
 </script>

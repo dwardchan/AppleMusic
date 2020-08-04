@@ -28,8 +28,6 @@ mixins:[clickMixin],
         break;
         case 1: this.$emit('detailBarClick', 'recommend')
         break;
-        case 2: this.$emit('detailBarClick', 'sub')
-        break;
       }
     }
   }

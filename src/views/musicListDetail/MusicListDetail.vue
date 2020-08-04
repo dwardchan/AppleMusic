@@ -4,6 +4,8 @@
       <detail-base-info :baseInfo="baseInfo" @allPlay="PlayMusic()" />
       <detail-bar :list="list" @detailBarClick="detailBarClick"/>
       <music-item :musiclist="musiclist" v-show="isShow=='music'" @musicItemClick="PlayMusic"/>
+      <recommends :recommends="recommends" :id="id" v-show="isShow=='recommend'" />
+      <music-list-live v-show="isShow=='sub'" :subs="subs" />
     </scroll>
   </div>
 </template>
@@ -14,6 +16,9 @@ import Scroll from "@/components/common/Scroll";
 import DetailBaseInfo from "./childComps/DetailBaseInfo";
 import DetailBar from "./childComps/DetailBar";
 import MusicItem from "./childComps/MusicItem";
+import Recommends from "./childComps/Recommends";
+import MusicListLive from "./childComps/MusicListLive";
+
 import {
   _getMusicListDetail,
   baseInfo,
@@ -43,7 +48,8 @@ export default {
     DetailBaseInfo,
     DetailBar,
     MusicItem,
-
+    Recommends,
+    MusicListLive
   },
 mixins:[indexMixin],
   created() {
@@ -54,7 +60,7 @@ mixins:[indexMixin],
       //保存歌单基础信息
       this.baseInfo = new baseInfo(this.musicListDetail.playlist)
       let str = "评论(" + this.musicListDetail.playlist.commentCount + ")"
-      this.list = ["歌曲列表", str, "收藏者"]
+      this.list = ["歌曲列表", str]
 
       //遍历查询歌单所有歌曲信息
       for (let i of this.musicListDetail.playlist.trackIds) {

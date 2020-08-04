@@ -93,14 +93,16 @@ mixins: [baseMixin]
 }
 .center div {
   padding: 5px 10px;
-  background: #25272b;
+  background: #fdfdfd;
+  border: 1px solid #cdcdcd;
   border-radius: 10px;
   margin-right: 10px;
   cursor: pointer;
-  color: #fff;
+  color: #000;
 }
 .center .bofang {
-  background: #cd2929;
+  background: #2778c6;
+  color: #fff;
 }
 .center img {
   width: 18px;

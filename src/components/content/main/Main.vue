@@ -22,7 +22,7 @@ export default {
 <style scoped>
 .main{
   width: calc(100% - 30%);
-  height: calc(100% - 60px - 39px);
+  height: calc(100% - 15%);
   margin-left: 15%;
   position:relative;
 }

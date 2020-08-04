@@ -4,7 +4,7 @@
       <thead>
         <tr>
           <td></td>
-          <td>操作</td>
+          <td></td>
           <td>音乐标题</td>
           <td>歌手</td>
           <td>专辑</td>
@@ -59,30 +59,30 @@ mixins:[tableMixin,playMixin],
 width: 100%;
 }
 .music thead{
-    color: #000;
+  color: #000;
 }
 .music tr{
-    height: 30px;
-    text-align: left;
+  height: 30px;
+  text-align: left;
 }
-.music tr:hover{
-    background-color: #2c2e32;
-    color: #fff;
-}
+/* .music tr:hover{
+  background-color: #2c2e32;
+  color: #fff;
+} */
 .music tr td{
-    border: 1px solid #23262c;
-    position: relative;
+  border: 1px solid #cdcdcd;
+  position: relative;
 }
 .music tbody{
-    font-size: 13px;
-    color: #000;
+  font-size: 13px;
+  color: #000;
 }
 .music tr td:nth-child(1){
-    width: 50px;
-    text-align: center;
+  width: 50px;
+  text-align: center;
 }
 .music tr td:nth-child(2){
-    width: 80px;
+  width: 80px;
 }
 .music tr td:nth-child(2) img{
     width: 20px;

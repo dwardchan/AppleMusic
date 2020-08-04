@@ -28,8 +28,7 @@ export default {
 }
 .content {
   width: 100%;
-  height: calc(100% - 49px);
-  margin-top: 10px;
+  height: 100%;
   padding: 10px 155px;
   overflow: hidden;
 }

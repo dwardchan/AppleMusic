@@ -74,7 +74,7 @@ export default {
       _getMusicListDetail(this.rankId).then(res => {
         this.musicListDetail = res.data
         //遍历查询歌单所有歌曲
-        for (let i of this.musicListDetail.playlis.trackIds.slice(0, 8)) {
+        for (let i of this.musicListDetail.playlist.trackIds.slice(0, 8)) {
           _getSongsDetail(i.id).then(res => {
             let song = new songDetail(res.data.songs)
             this.musiclist.push(song)
@@ -160,7 +160,7 @@ export default {
 .center table {
   width: 100%;
   font-size: 13px;
-  color: #575757;
+  color: #000;
 }
 .center tr {
   width: 100%;
@@ -172,19 +172,16 @@ export default {
 .center tr:nth-child(3) td:nth-child(1) {
   color: #b82525;
 }
-.center tr:hover {
-  background-color: #2c2e32;
-  color: #fff;
-}
+
 .center tr td {
   border: none;
   position: relative;
 }
 .center tr td:nth-child(2) {
-  color: #dcdde4;
+  color: #000;
 }
 
 .backColor {
-  background: #1a1c20;
+  background: #fff;
 }
 </style>

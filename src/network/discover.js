@@ -63,18 +63,18 @@ export function _getHighquality(cat,limit){
 /**获取排行榜数据 */
 export function _getRankList(){
   return request({
-      url:'/toplist',
+      url: '/toplist',
   })
 }
 
 /**歌手 */
 export function _getArtist(area,type,limit){
   return request({
-      url:'/artist/list',
+      url: '/artist/list',
       params:{
-          area:area,
-          type:type,
-          limit:limit
+          area: area,
+          type: type,
+          limit: limit
       }
   })
 }
@@ -82,9 +82,16 @@ export function _getArtist(area,type,limit){
 /**最新歌曲 */
 export function _getTopSongs(type){
   return request({
-      url:'/top/song',
+      url: '/top/song',
       params:{
-          type:type
+      type: type
       }
+  })
+}
+
+//获取电台
+export function _getDj(type){
+  return request({
+      url: '/personalized/djprogram',
   })
 }
