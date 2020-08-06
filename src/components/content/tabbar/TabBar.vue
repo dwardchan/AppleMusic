@@ -1,22 +1,24 @@
 <template>
   <div class="tabbar">
+    <div class="wrap">
     <div class="logo">
       <img src="@/assets/img/content/logo.png" alt="" @click="backHome()" />
-      <div class="title" @click="backHome()">网抑云音乐</div>
-      <div class="back" @click="back()">
+      <div class="title" @click="backHome()">网易云音乐</div>
+      <!-- <div class="back" @click="back()">
         <img src="@/assets/img/content/back.svg" alt="">
-      </div>
+      </div> -->
     </div>
 
     <top-menu class="topmenu"/>
     <div class="content">
-      <music-search class="serach"/>
       <div class="login" @click="showLogin()">
-        <div class="profile">
-          <img :src="getImage" alt="">
+        <div class="profile" v-show="isShow">
+          <img :src="getImage" alt="" >
         </div>
         <div>{{getUserName}}</div>
       </div>
+      <music-search class="serach"/>
+    </div>
     </div>
   </div>
 </template>
@@ -33,7 +35,8 @@ export default {
   data() {
     return {
       image: "",
-      statu: "未登录"
+      statu: "登录",
+      isShow: false
     }
   },
   computed: {
@@ -55,31 +58,37 @@ export default {
       if (this.$route.path == '/discover') return;
       this.$router.push("/discover");
     },
-    back() {
-      this.$router.go(-1);
-    }
+    // back() {
+    //   this.$router.go(-1);
+    // }
   }
 }
 </script>
 
 <style scoped>
 .tabbar {
+  position: relative;
   height: 60px;
-  width: 100%;
+  box-sizing: border-box;
+  border-bottom: 1px solid #000;
   background-color: #202023;
 }
+.wrap {
+  width: 1100px;
+  height: 60px;
+  margin: 0 auto;
+}
 .logo {
-  color: #fff;
-  font-size: 16px;
-  cursor: pointer;
-  height: 100%;
-  margin-left: 425px;
-  width: 10%;
-  line-height: 100%;
-  display: flex;
   float: left;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  width: 176px;
+  height: 59px;
+  line-height: 100%;
+  padding-right: 20px;
+  display: flex;
   align-items: center;
-  position: relative;
 }
 .back {
   display: inline-block;
@@ -96,21 +105,18 @@ export default {
 }
 
 .content {
-  color: #fff;
-  margin-left: -400px;
-  float: left;
-  height: 100%;
+  color: #9b9b9b;
+  height: 59px;
+  font-size: 12px;
 }
 .search {
-  float: left;
-  display: flex;
+  float: right;
   align-items: center;
 }
 .login {
   cursor: pointer;
-  height: 100%;
-  float: left;
-  margin-right: 50px;
+  height: 59px;
+  float: right;
   display: flex;
   align-items: center;
 }

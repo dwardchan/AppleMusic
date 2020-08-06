@@ -1,13 +1,15 @@
 <template>
   <div class="navbar">
+    <div class="wrap">
     <div class="content">
       <router-link v-for="(item, index) in list" :key="index" :to="item.link">
          <div
           class="item"
           @click="barClick(index)"
-          
+          :class="{action:currentIndex == index}"
         >{{item.name}}</div>  
       </router-link>
+    </div>
     </div>
   </div>
 </template>
@@ -53,19 +55,33 @@ export default {
   height: 34px;
   width: 100%;
 }
+.wrap {
+  width: 1100px;
+  height: 34;
+  margin: 0 auto;
+}
 .content {
-  width: 35%;
-  height: 100%;
-  margin: 0px auto;
+  float: left;
+  padding-left: 180px;
+  height: 34px;
   display: flex;
 }
-.navbar a {
+.item {
+  padding: 0 36px;
   text-align: center;
-  flex: 1;
-  height: 100%;
+  float: left;
+  height: 34px;
   line-height: 34px;
   color: #fff;
   
 }
-
+.action {
+  display: inline-block;
+  height: 20px;
+  padding: 0 13px;
+  margin: 7px 17px 0;
+  border-radius: 20px;
+  background: rgba(155, 9, 9, 0.7);
+  line-height: 20px;
+}
 </style>

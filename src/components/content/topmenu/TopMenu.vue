@@ -8,17 +8,15 @@
             </span>
          </li>  
       </router-link>
-      <!-- <my-song-list/>  -->
     </ul>
   </div>
 </template>
 
 <script>
-// import TopMenu from '@/components/content/user/MySongList'
 export default {
   name: "TopMenu",
   components: {
-    // MySongList
+    
   },
   data() {
     return {
@@ -49,8 +47,6 @@ export default {
           image: require("@/assets/img/leftmenu/friend.svg"),
           title: "朋友"
         },
-        
-        // { link: "", image: "", title: "创建的歌单" },
       ],
       currentIndex: 0
     }
@@ -67,9 +63,9 @@ export default {
 <style scoped>
 .topmenu {
   background: #202023;
-  margin-left: 10px;
+  padding: 0 19px;
   width: 50%;
-  height: 100%;
+  height: 59px;
   float: left;
   display: flex;
   align-items: center;

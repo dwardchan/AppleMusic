@@ -1,7 +1,9 @@
 <template>
   <div class="search" @mouseleave="leave()">
     <div class="search-item">
-        <input type="text" class="mess" v-model="keywords" @focus="focus()" @keydown.enter="keyEnter()"/>
+        <input type="text" class="mess" placeholder="音乐/视频/电台/用户" 
+        onfocus="this.placeholder=''" onblur="this.placeholder='音乐/视频/电台/用户'"
+        v-model="keywords" @focus="focus()" @keydown.enter="keyEnter()"/>
         <div class="search-icon" @click="keyEnter()">          
           <img src="@/assets/img/content/search.svg" alt="">
         </div>
@@ -88,7 +90,7 @@ export default {
 
 <style scoped>
 .search {
-  height: 100%;
+  height: 59px;
   width: 200px;
   display: inline-block;
   position: relative;
@@ -111,7 +113,7 @@ export default {
   line-height: 16px;
   background: transparent;
   position: absolute;
-  width: 70%;
+  width: 80%;
   height: 100%;
   padding: 0px 10px;
   border: #f6f6f6;
@@ -121,7 +123,11 @@ export default {
   cursor: pointer;
   position: absolute;
   right: 2px;
-  top: -2px;
+  top: -4px;
+}
+.search-icon img {
+  width: 75%;
+  height: 75%;
 }
 .suggest {
   width: 400px;

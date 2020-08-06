@@ -1,14 +1,6 @@
 <template>
   <div class="play-music" v-if="playList!==null">
-    <!-- <div class="top">
-      <div class="music-top-icon" v-if="playList[currentIndex]!=null">
-        <img :src="playList[currentIndex].pic" alt />
-      </div>
-      <div class="music-top-center" v-if="playList[currentIndex]!=null">
-        <div class="music-title">{{playList[currentIndex].title}}</div>
-        <div class="music-artist">{{playList[currentIndex].artist}}</div>
-      </div>
-    </div> -->
+    <div class="wrap">
     <play-music-list class="play-music-list" v-show="isMusicList" :music-list="musicList"/>
     <div class="play-music-left">
       <div class="pre" @click="preMusic()">
@@ -18,7 +10,7 @@
         <img src="@/assets/img/playmusic/play.png" alt v-show="!isPlay" />
         <img src="@/assets/img/playmusic/play2.png" alt v-show="isPlay" />
       </div>
-      <div class="netx" @click="nextMusic()">
+      <div class="next" @click="nextMusic()">
         <img src="@/assets/img/playmusic/next.png" alt />
       </div>
     </div>
@@ -72,6 +64,7 @@
           </a>
         </div>
       </div>
+    </div>
     </div>
   </div>
 </template>
@@ -267,43 +260,16 @@ export default {
   z-index: 3;
   bottom: 0;
 }
-/* .top {
-  width: 15%;
-  height: 100%;
-  position: absolute;
-  left: 0px;
-  bottom: 59px;
-  display: flex;
-  background: #191b1f;
-} */
+.play-music .wrap {
+  width: 1300px;
+  height: 53px;
+  margin: 0 auto;
+}
 .play-music-list {
   position: absolute;
   right: 0px;
-  bottom: 53px;
 }
-.music-top-icon {
-  height: 100%;
-}
-.music-top-icon img {
-  height: 100%;
-}
-.music-top-center {
-  width: 100px;
-  font-size: 13px;
-  position: relative;
-  left: 5px;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-}
-.music-title {
-  position: absolute;
-  top: 0px;
-}
-.music-artist {
-  position: absolute;
-  bottom: 0px;
-}
+
 .play-music-left {
   display: flex;
   float: left;
@@ -315,10 +281,15 @@ export default {
 .play-music-left div {
   cursor: pointer;
 }
-.play-music-left .play img {
-  width: 55px;
-  height: 52px;
+.play-music-left  img {
+  width: 75%;
+  height: 75%;
 }
+/* .play-music-left .play img {
+  width: 75%;
+  height: 75%;
+} */
+/* .play-music-left .n img */
 .play-music-right {
   width: 85%;
   height: 100%;
