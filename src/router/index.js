@@ -12,9 +12,10 @@ const DjProgram=()=>import('@/views/discover/childRouter/DjProgram')
 const MusicListDetail=()=>import('@/views/musicListDetail/MusicListDetail')
 const DayMusicListDetail=()=>import('@/views/musicListDetail/DayMusicListDetail')
 
-// const ArtistDetail=()=>import('views/artistdetail/ArtistDetail')
-// const ArtistAlbum=()=>import('views/artistdetail/childRouter/ArtistAlbum')
-// const ArtistDescDetail=()=>import('views/artistdetail/childRouter/ArtistDescDetail')
+const ArtistDetail=()=>import('@/views/artistdetail/ArtistDetail')
+const ArtistHot=()=>import('@/views/artistdetail/childRouter/ArtistHot')
+const ArtistAlbum=()=>import('@/views/artistdetail/childRouter/ArtistAlbum')
+const ArtistDescDetail=()=>import('@/views/artistdetail/childRouter/ArtistDescDetail')
 // const SimiArtist=()=>import('views/artistdetail/childRouter/SimiArtist')
 
 // const SearchList=()=>import('views/search/SearchList')
@@ -69,28 +70,32 @@ Vue.use(VueRouter)
     path:'/daymusic',
     component:DayMusicListDetail
   },
-  // {
-  //   path:'/artist',
-  //   component:ArtistDetail,
-  //   children:[
-  //     {
-  //       path:'/',
-  //       redirect:'/artist/album'
-  //     },
-  //     {
-  //       path:'/artist/album',
-  //       component:ArtistAlbum
-  //     },
-  //     {
-  //       path:'/artist/desc',
-  //       component:ArtistDescDetail
-  //     },
-  //     {
-  //       path:'/artist/simi',
-  //       component:SimiArtist
-  //     },
-  //   ]
-  // },
+  {
+    path:'/artist',
+    component:ArtistDetail,
+    children:[
+      {
+        path:'/',
+        redirect:'/artist/album'
+      },
+      {
+        path:'/artist/top/song',
+        component:ArtistHot
+      },
+      {
+        path:'/artist/album',
+        component:ArtistAlbum
+      },
+      {
+        path:'/artist/desc',
+        component:ArtistDescDetail
+      },
+      // {
+      //   path:'/artist/simi',
+      //   component:SimiArtist
+      // },
+    ]
+  },
   // {
   //   path:'/search/:key',
   //   component:SearchList
