@@ -56,7 +56,7 @@ export default {
     },
     backHome() {
       if (this.$route.path == '/discover') return;
-      this.$router.push("/discover");
+      this.$router.push("/discover"); 
     },
     // back() {
     //   this.$router.go(-1);

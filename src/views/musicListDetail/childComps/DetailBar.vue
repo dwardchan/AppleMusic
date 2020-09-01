@@ -24,9 +24,9 @@ mixins:[clickMixin],
     currentClick(index) {
       this.currentIndex = index
       switch(index) {
-        case 0: this.$emit('detailBarClick', 'music')
+        case 0: this.$emit('detailBarClick', 'music') //歌曲列表
         break;
-        case 1: this.$emit('detailBarClick', 'recommend')
+        case 1: this.$emit('detailBarClick', 'recommend') //评论
         break;
       }
     }

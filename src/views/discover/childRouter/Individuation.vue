@@ -4,8 +4,8 @@
       <swiper :banner="banner"/>
       <p>推荐歌单</p>
       <music-list :personList="personalized" @imgLoad="imgLoad"/>
-      <private-content :pri="privateContent" @priImgLoad="priImgLoad" />
-      <new-songs :songList="songList" @newSongImgLoad="newSongImgLoad" @playMusic="playMusic" />
+      <private-content :pri="privateContent" @imgLoad="imgLoad" />
+      <new-songs :songList="songList" @imgLoad="imgLoad" @playMusic="playMusic" />
     </scroll>
   </div>
 </template>
@@ -37,7 +37,7 @@ export default {
       limit: 12, //一次获取的歌单数量
       personalized: null, //保存获取到的推荐歌单
       privateContent: null, //独家放送
-      songList: null, //每日新歌
+      songList: null, //最新音乐
       musiclist: []
     }
   },
@@ -52,7 +52,8 @@ export default {
   created() {
      if (this.$store.state.cookie != null && this.$store.state.cookie != "") {
       this.limit = 11;
-    }
+    }  //如过store里的cookie不为空则登录了，登录了只请求11个歌单，因为有一个每日推荐歌单会占一位
+
     //轮播图数据
     _getBanner().then(res => {
       this.banner = res.data.banners.slice(0, 6);
@@ -65,18 +66,12 @@ export default {
     _getPrivateContent().then(res => {
       this.privateContent = res.data
     })
-    //日推
+    //最新音乐
     _getNewSong().then(res => {
       this.songList = res.data.result
     })
   },
   methods: {
-    priImgLoad() {
-      this.$refs.scroll.refresh();
-    },
-    newSongImgLoad() {
-      this.$refs.scroll.refresh();
-    },
     playMusic(index) {
       this.musiclist = []
       for (let i in this.songList) {

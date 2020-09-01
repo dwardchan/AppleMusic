@@ -65,7 +65,7 @@
         </div>
       </div>
     </div>
-    </div>
+   </div>
   </div>
 </template>
 <script>
@@ -253,10 +253,10 @@ export default {
 </script>
 <style scoped>
 .play-music {
+  position: absolute;
   width: 100%;
   height: 53px;
   background: #212124;
-  position: relative;
   z-index: 3;
   bottom: 0;
 }

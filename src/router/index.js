@@ -16,7 +16,7 @@ const ArtistDetail=()=>import('@/views/artistdetail/ArtistDetail')
 const ArtistHot=()=>import('@/views/artistdetail/childRouter/ArtistHot')
 const ArtistAlbum=()=>import('@/views/artistdetail/childRouter/ArtistAlbum')
 const ArtistDescDetail=()=>import('@/views/artistdetail/childRouter/ArtistDescDetail')
-// const SimiArtist=()=>import('views/artistdetail/childRouter/SimiArtist')
+const ArtistMv=()=>import('@/views/artistdetail/childRouter/ArtistMv')
 
 // const SearchList=()=>import('views/search/SearchList')
 
@@ -37,27 +37,45 @@ Vue.use(VueRouter)
       },
       {
         path:'/discover/individ',
-        component: Individuation
+        component: Individuation,
+        meta: {
+          keepAlive: true
+        }
       },
       {
         path:'/discover/category',
-        component:MusicListCategory
+        component:MusicListCategory,
+        meta: {
+          keepAlive: true
+        }
       },
       {
         path:'/discover/ranklist',
-        component:MusicRankList
+        component:MusicRankList,
+        meta: {
+          keepAlive: true
+        }
       },
       {
         path:'/discover/artist',
-        component:ArtistCategory
+        component:ArtistCategory,
+        meta: {
+          keepAlive: true
+        }
       },
       {
         path:'/discover/newsongs',
-        component:NewSongsR
+        component:NewSongsR,
+        meta: {
+          keepAlive: true
+        }
       },
       {
         path:'/discover/djprogram',
-        component:DjProgram
+        component:DjProgram,
+        meta: {
+          keepAlive: true
+        }
       }  
     ]
   },
@@ -90,10 +108,10 @@ Vue.use(VueRouter)
         path:'/artist/desc',
         component:ArtistDescDetail
       },
-      // {
-      //   path:'/artist/simi',
-      //   component:SimiArtist
-      // },
+      {
+        path:'/artist/mv',
+        component:ArtistMv
+      },
     ]
   },
   // {
@@ -105,6 +123,8 @@ Vue.use(VueRouter)
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
+  linkActiveClass: 'active',
+  linkExactActiveClass: 'active',
   routes
 })
 

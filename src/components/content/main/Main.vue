@@ -7,13 +7,11 @@
 
 <script>
 import Login from '../user/Login'
-
 import DiscoverMusic from '@/views/discover/DiscoverMusic'
 export default {
   name: "Main",
   components: {
     Login, 
-
     DiscoverMusic
   }
 }

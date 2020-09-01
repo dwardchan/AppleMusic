@@ -7,7 +7,8 @@
       </div>
       <div class="title">每日推荐</div>
     </div>
-    <div
+    
+    <div 
     class="list-item"
     v-for="(item, index) in personList"
     :key="index"
@@ -46,14 +47,14 @@ export default {
     }
   },
   mixins: [imgLoadMixin,detailMixin],
-  mounted() {
+  
+  created() {
     if(this.$store.state.cookie != '' && this.$store.state.cookie != null){
       this.isShow=true
-    }
-    this.$bus.$on('pullResource', cookie => {
-      this.isShow = true
+    }//如果cookie不为空则已登录，获取日推。
+    this.$root.$on("dayShow", (val) => {
+      this.isShow = val
     })
-    console.log(this.$store.state.cookie);
   },
   methods: {
     getImgUrl(item) {

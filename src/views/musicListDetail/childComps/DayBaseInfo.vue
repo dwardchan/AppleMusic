@@ -67,7 +67,7 @@ export default {
 }
  .desc {
   height: 125px;
-  background: linear-gradient(to right,#16181c,#19192b);
+  background: #f5f5f5;
   flex: 1;
 }
 .desc .left{

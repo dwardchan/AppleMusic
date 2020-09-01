@@ -38,7 +38,7 @@ export default {
           _getSongsDetail(i.id).then(res => {
             let song = new songDetail(res.data.songs)
             this.musiclist.push(song)
-          })
+          })//根据uid获取日推的歌
         }
       })
     }
@@ -52,7 +52,7 @@ export default {
   width: 100%;
   height: 100%;
   padding: 35px 35px 0px 35px;
-  background: #16181c;
+  background: #f5f5f5;
   color: #dcdde4;
   overflow: hidden;
 }

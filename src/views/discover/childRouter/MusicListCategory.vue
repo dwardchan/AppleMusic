@@ -10,7 +10,7 @@
       >{{item.name}}</div>
     </div>
     <scroll ref="scroll" class="category-scroll" :pull-up-load="true" @pullingUp="pullingUp">
-      <music-list :personList="musicList" @imgLoad="imgLoad" />
+      <music-list :personList="musicList"  @imgLoad="imgLoad" />
     </scroll>
   </div>
 </template>
@@ -30,7 +30,7 @@ export default {
       currentIndex: 0,
       limit: 24,
       page: 1,
-      musicList: []
+      musicList: [],
     }
   },
   components: {

@@ -2,7 +2,7 @@
   <div class="topmenu">
     <ul>
       <router-link :to="item.link" v-for="(item, index) in list" :key="index">
-         <li :class="{action:currentIndex == index}" @click="checkClick(index)">
+         <li :class="{action:currentIndex == index}" @click="checkClick(index)" >
             <span>
                 {{item.title}}              
             </span>
@@ -30,22 +30,22 @@ export default {
         {
           link: "/test",
           image: require("@/assets/img/leftmenu/fm.svg"),
-          title: "私人FM"
+          title: "我的音乐"
         },
         {
           link: "",
           image: require("@/assets/img/leftmenu/zhibo.svg"),
-          title: "直播"
+          title: "朋友"
         },
         {
           link: "",
           image: require("@/assets/img/leftmenu/shiping.svg"),
-          title: "视频"
+          title: "商城"
         },
         {
           link: "",
           image: require("@/assets/img/leftmenu/friend.svg"),
-          title: "朋友"
+          title: "音乐人"
         },
       ],
       currentIndex: 0
@@ -55,6 +55,7 @@ export default {
     checkClick(index) {
       if(this.list[index].image=='') return
       this.currentIndex = index
+      this.$root.$emit("show", this.currentIndex) 
     }
   }
 }

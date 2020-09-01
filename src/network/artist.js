@@ -30,7 +30,7 @@ export function _getArtistAlbum(id){
 /**获取专辑内容 */
 export function _getAlbum(id){
     return request({
-        url:'/album',
+        url:'/artist/album',
         params:{
             id:id
         }
@@ -46,14 +46,14 @@ export function _getArtistDescDetail(id){
         }
     })
 }
-
-/**获取相识歌手 */
-export function _getSimiArtist(cookie,id){
+/**获取歌手MV */
+export function _getArtistMv(id){
     return request({
-        url:'/simi/artist',
+        url:'/artist/mv',
         params:{
-            cookie:cookie,
             id:id
         }
     })
 }
+
+

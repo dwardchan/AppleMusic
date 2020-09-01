@@ -1,13 +1,10 @@
 <template>
-  <div class="navbar">
+  <div class="navbar" v-show="isShow == 0">
     <div class="wrap">
     <div class="content">
-      <router-link v-for="(item, index) in list" :key="index" :to="item.link">
-         <div
-          class="item"
-          @click="barClick(index)"
-          :class="{action:currentIndex == index}"
-        >{{item.name}}</div>  
+      <router-link v-for="(item, index) in list" :key="index" :to="item.link"
+      class="item" @click="barClick(index)">
+        {{item.name}}
       </router-link>
     </div>
     </div>
@@ -21,6 +18,8 @@ export default {
   data() {
     return {
       currentIndex: 0,
+      isShow: false,
+      listIndex: 1,
       list: [
         { link: "/discover/individ", name: "个性推荐" },
         { link: "/discover/category", name: "歌单" },
@@ -39,12 +38,17 @@ export default {
         }, 100)
         break;
       }
-    }
+    };
+    this.$root.$on("show", (val) => {
+      this.isShow = val;
+    })
   },
+  
   methods: {
     barClick(index) {
       this.currentIndex = index
-    }
+      if(index = 1) this.$root.$emit("dayShow", this.isShow)
+    },
   }
 }
 </script>
@@ -75,7 +79,7 @@ export default {
   color: #fff;
   
 }
-.action {
+.active {
   display: inline-block;
   height: 20px;
   padding: 0 13px;
